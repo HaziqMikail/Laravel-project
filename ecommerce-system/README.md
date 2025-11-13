@@ -1,8 +1,8 @@
-# E-Commerce System
+# 🛍️ E-Commerce System
 
 A simple e-commerce application built with **Laravel** that allows users to manage products, customers, and orders.  
 
-## Features
+## 📋 Features
 - User authentication (Login, Register, Logout)
 - Product management: Add, edit, delete products
 - Customer management: Add, edit, delete customers
@@ -10,7 +10,7 @@ A simple e-commerce application built with **Laravel** that allows users to mana
 - Bootstrap-based responsive UI
 - Sample data preloaded via database seeder
 
-## Tech Stack
+## ⚙️ Tech Stack
 - **Backend:** Laravel (PHP)
 - **Frontend:** Blade templates, Bootstrap
 - **Database:** MySQL 
