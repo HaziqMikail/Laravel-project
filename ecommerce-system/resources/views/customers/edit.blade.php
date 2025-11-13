@@ -1,0 +1,61 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Edit Customer</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('customers.update', $customer) }}">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Customer Name *</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" 
+                                   id="name" name="name" value="{{ old('name', $customer->name) }}" required>
+                            @error('name')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" 
+                                   id="email" name="email" value="{{ old('email', $customer->email) }}" required>
+                            @error('email')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="text" class="form-control @error('phone') is-invalid @enderror" 
+                                   id="phone" name="phone" value="{{ old('phone', $customer->phone) }}" required>
+                            @error('phone')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address *</label>
+                            <textarea class="form-control @error('address') is-invalid @enderror" 
+                                      id="address" name="address" rows="3" required>{{ old('address', $customer->address) }}</textarea>
+                            @error('address')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('customers.index') }}" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Update Customer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
